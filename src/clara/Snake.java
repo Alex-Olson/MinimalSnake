@@ -117,7 +117,9 @@ public class Snake extends TimerTask implements KeyListener {
 
 
 
-            int[] newHead = {headX + nextMove[0], headY + nextMove[1]};   //create new head
+            int[] newHead = {headX + nextMove[0], headY + nextMove[1]};
+            //create new head
+            //if the snake is out of bounds in any sort of way, make the new head on the opposite side of it going out of bounds - ao
             if (newHead[0] < 0){
                 newHead[0] = xSquares;
             } else if (newHead[0] > xSquares){
@@ -150,11 +152,15 @@ public class Snake extends TimerTask implements KeyListener {
 
 
 
-            //if ((headX < 0 || headX > xSquares) || (headY < 0 || headY > ySquares)) {
-                //Head outside board? Snake hit wall, game over
+            /*
+            //Head outside board? Snake hit wall, game over
+            //removed endgame for snake wall hit since it wall warps now - ao
+            if ((headX < 0 || headX > xSquares) || (headY < 0 || headY > ySquares)) {
+
                 //gameOver = clockTicksToRestart;
                 //return;
-           // }
+            }
+            */
 
             if (headX == kibble[0] && headY == kibble[1]) {      //Is kibble in same square as snake head? Snake ate kibble.
                 score++;                              // increase score
